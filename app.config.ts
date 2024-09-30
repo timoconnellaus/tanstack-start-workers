@@ -1,7 +1,11 @@
 import { defineConfig } from "@tanstack/start/config";
+import { App } from "vinxi";
 
-export default defineConfig({
+const tanstackApp = defineConfig({
   server: {
+    routeRules: {
+      "/**": {},
+    },
     preset: "cloudflare-pages",
 
     output: {
@@ -19,3 +23,20 @@ export default defineConfig({
     },
   },
 });
+
+const routers = tanstackApp.config.routers.map((r) => {
+  return {
+    ...r,
+    middleware: r.target === "server" ? "./middleware.tsx" : undefined,
+  };
+});
+
+const app: App = {
+  ...tanstackApp,
+  config: {
+    ...tanstackApp.config,
+    routers: routers,
+  },
+};
+
+export default app;

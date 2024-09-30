@@ -4,17 +4,17 @@ import { getCloudflareContext } from "../utils/cfContext";
 import { getEvent } from "vinxi/http";
 
 const incrementCount = createServerFn("POST", async () => {
-  const cf = await getCloudflareContext(getEvent());
-
-  const response = await cf.env.tanstack_start_workers.get("count");
+  const event = getEvent();
+  const response =
+    await event.context.cloudflare.env.tanstack_start_workers.get("count");
   if (!response) {
-    await cf.env.tanstack_start_workers.put(
+    await event.context.cloudflare.env.tanstack_start_workers.put(
       "count",
       JSON.stringify({ count: 1 }),
     );
   } else {
     const previousCount = JSON.parse(response).count as number;
-    await cf.env.tanstack_start_workers.put(
+    await event.context.cloudflare.env.tanstack_start_workers.put(
       "count",
       JSON.stringify({ count: previousCount + 1 }),
     );
@@ -22,9 +22,9 @@ const incrementCount = createServerFn("POST", async () => {
 });
 
 const getCount = createServerFn("GET", async () => {
-  const cf = await getCloudflareContext(getEvent());
-
-  const response = await cf.env.tanstack_start_workers.get("count");
+  const event = getEvent();
+  const response =
+    await event.context.cloudflare.env.tanstack_start_workers.get("count");
   if (!response) {
     return { count: 0 };
   } else {
