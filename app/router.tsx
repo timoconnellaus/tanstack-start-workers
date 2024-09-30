@@ -4,6 +4,7 @@ import { routeTree } from "./routeTree.gen";
 export function createRouter() {
   const router = createTanStackRouter({
     routeTree,
+    defaultNotFoundComponent: () => <div>Not Found</div>,
   });
 
   return router;

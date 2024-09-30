@@ -4,3 +4,7 @@ compatibility_date = "2024-09-25"
 compatibility_flags = ["nodejs_compat"]
 main = "./dist/worker/index.js"
 assets = { directory = "./dist/public", binding = "ASSETS" }
+
+[[kv_namespaces]]
+binding = "tanstack_start_workers"
+id = "9d83514a12624e83a897647578f7281b"

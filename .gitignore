@@ -1,3 +1,4 @@
 .vinxi
 dist
 node_modules
+.wrangler

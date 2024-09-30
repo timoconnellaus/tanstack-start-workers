@@ -2,7 +2,7 @@ import { defineConfig } from "@tanstack/start/config";
 
 export default defineConfig({
   server: {
-    preset: "./cloudflare-pages",
+    preset: "cloudflare-pages",
 
     output: {
       dir: "{{ rootDir }}/dist",
@@ -11,7 +11,7 @@ export default defineConfig({
     },
 
     rollupConfig: {
-      external: ["node:async_hooks"],
+      external: ["node:async_hooks", "node:async_hooks"],
     },
 
     hooks: {
