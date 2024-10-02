@@ -1,3 +1,6 @@
+> [!WARNING]
+> 3rd Oct 2024 - THERE IS CURRENTLY A BREAKING CHANGE WITH HOW WRANGLER GENERATES TYPES - WORKING ON A FIX
+
 A minimal example of Tanstack Start running on Cloudflare Workers with SSR (not cloudflare pages)
 
 1. `bun install`
