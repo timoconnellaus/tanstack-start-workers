@@ -1,6 +1,6 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "tanstack-start-workers"
-compatibility_date = "2024-09-25"
+compatibility_date = "2024-10-03"
 compatibility_flags = ["nodejs_compat"]
 main = "./dist/worker/index.js"
 assets = { directory = "./dist/public", binding = "ASSETS" }

@@ -1,6 +1,5 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/start";
-import { getCloudflareContext } from "../utils/cfContext";
 import { getEvent } from "vinxi/http";
 
 const incrementCount = createServerFn("POST", async () => {

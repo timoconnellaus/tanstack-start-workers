@@ -3,9 +3,6 @@ import { App } from "vinxi";
 
 const tanstackApp = defineConfig({
   server: {
-    routeRules: {
-      "/**": {},
-    },
     preset: "cloudflare-pages",
 
     output: {
@@ -27,7 +24,7 @@ const tanstackApp = defineConfig({
 const routers = tanstackApp.config.routers.map((r) => {
   return {
     ...r,
-    middleware: r.target === "server" ? "./middleware.tsx" : undefined,
+    middleware: r.target === "server" ? "./app/middleware.tsx" : undefined,
   };
 });
 
